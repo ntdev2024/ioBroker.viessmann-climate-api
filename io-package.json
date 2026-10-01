@@ -44,7 +44,7 @@
       "zh-cn": "适用于通过 Vitoconnect 连接系统的 Viessmann Climate Solutions API 适配器，支持受保护的写入。"
     },
     "authors": [
-      "ntdev2024"
+      "ntdev2024 <iobroker.ntdev2024@web.de>"
     ],
     "keywords": [
       "viessmann",

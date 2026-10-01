@@ -116,6 +116,6 @@ The software is provided without warranty. Heating-system changes can affect com
 
 ## License
 
-Copyright (c) 2026 ntdev2024
+Copyright (c) 2026 ntdev2024 <iobroker.ntdev2024@web.de>
 
 [MIT License](LICENSE)
