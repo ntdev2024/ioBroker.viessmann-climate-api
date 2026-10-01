@@ -1,0 +1,364 @@
+{
+  "i18n": true,
+  "type": "tabs",
+  "items": {
+    "oauthTab": {
+      "type": "panel",
+      "label": "oauthHeader",
+      "items": {
+        "_donationHeader": {
+          "type": "header",
+          "text": "donationHeader",
+          "size": 2,
+          "newLine": true
+        },
+        "_donationText": {
+          "type": "staticText",
+          "text": "donationText",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "paypalDonationUrl": {
+          "type": "text",
+          "label": "paypalDonationUrl",
+          "newLine": true,
+          "help": "paypalDonationUrlHelp",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "openDonationUrl": {
+          "type": "sendTo",
+          "label": "openDonationUrl",
+          "command": "openDonationUrl",
+          "variant": "contained",
+          "showProcess": true,
+          "openUrl": true,
+          "window": "_blank",
+          "disabled": "!data.paypalDonationUrl",
+          "jsonData": "{\"paypalDonationUrl\":\"${data.paypalDonationUrl}\"}",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 3,
+          "xl": 3,
+          "icon": "open"
+        },
+        "_oauthHeader": {
+          "type": "header",
+          "text": "oauthHeader",
+          "size": 2,
+          "newLine": true
+        },
+        "clientId": {
+          "type": "text",
+          "label": "clientId",
+          "newLine": true,
+          "help": "clientIdHelp",
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "clientSecret": {
+          "type": "password",
+          "label": "clientSecret",
+          "newLine": true,
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "redirectUri": {
+          "type": "text",
+          "label": "redirectUri",
+          "newLine": true,
+          "help": "redirectUriHelp",
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "scope": {
+          "type": "text",
+          "label": "scope",
+          "newLine": true,
+          "readOnly": true,
+          "help": "scopeHelp",
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "oauthPublicRedirectUri": {
+          "type": "text",
+          "label": "oauthPublicRedirectUri",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "help": "oauthPublicRedirectUriHelp"
+        },
+        "oauthCallbackEnabled": {
+          "type": "checkbox",
+          "label": "oauthCallbackEnabled",
+          "newLine": true,
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        },
+        "bind": {
+          "type": "text",
+          "label": "bind",
+          "newLine": true,
+          "hidden": "!data.oauthCallbackEnabled",
+          "xs": 12,
+          "sm": 8,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        },
+        "port": {
+          "type": "number",
+          "label": "port",
+          "min": 1024,
+          "max": 65535,
+          "newLine": true,
+          "hidden": "!data.oauthCallbackEnabled",
+          "xs": 12,
+          "sm": 4,
+          "md": 3,
+          "lg": 2,
+          "xl": 2
+        },
+        "oauthCallbackPath": {
+          "type": "text",
+          "label": "oauthCallbackPath",
+          "newLine": true,
+          "hidden": "!data.oauthCallbackEnabled",
+          "xs": 12,
+          "sm": 8,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        },
+        "oauthCreateUrl": {
+          "type": "sendTo",
+          "label": "oauthLogin",
+          "command": "oauthCreateUrl",
+          "variant": "contained",
+          "showProcess": true,
+          "openUrl": true,
+          "window": "_blank",
+          "disabled": "!data.clientId",
+          "jsonData": "{\"clientId\":\"${data.clientId}\",\"redirectUri\":\"${data.redirectUri}\",\"oauthPublicRedirectUri\":\"${data.oauthPublicRedirectUri}\",\"scope\":\"${data.scope}\"}",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 3,
+          "xl": 3,
+          "icon": "open"
+        },
+        "_oauthOpenHint": {
+          "type": "staticText",
+          "text": "oauthOpenHint",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "oauthLoginUrl": {
+          "type": "text",
+          "label": "oauthLoginUrl",
+          "newLine": true,
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "help": "oauthLoginUrlHelp"
+        },
+        "oauthCode": {
+          "type": "text",
+          "label": "oauthCode",
+          "newLine": true,
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "help": "oauthCodeHelp"
+        },
+        "oauthExchangeCode": {
+          "type": "sendTo",
+          "label": "oauthExchangeCode",
+          "command": "oauthExchangeCode",
+          "variant": "contained",
+          "showProcess": true,
+          "jsonData": "{\"clientId\":\"${data.clientId}\",\"clientSecret\":\"${data.clientSecret}\",\"redirectUri\":\"${data.redirectUri}\",\"oauthPublicRedirectUri\":\"${data.oauthPublicRedirectUri}\",\"oauthActiveRedirectUri\":\"${data.oauthActiveRedirectUri}\",\"scope\":\"${data.scope}\",\"oauthCode\":\"${data.oauthCode}\",\"oauthPkceVerifier\":\"${data.oauthPkceVerifier}\",\"oauthPkceState\":\"${data.oauthPkceState}\"}",
+          "newLine": true,
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 3,
+          "xl": 3
+        },
+        "oauthPkceVerifier": {
+          "type": "password",
+          "label": "oauthPkceVerifier",
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "oauthPkceState": {
+          "type": "password",
+          "label": "oauthPkceState",
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        },
+        "oauthActiveRedirectUri": {
+          "type": "text",
+          "label": "oauthActiveRedirectUri",
+          "hidden": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 6
+        }
+      }
+    },
+    "pollingTab": {
+      "type": "panel",
+      "label": "pollingHeader",
+      "items": {
+        "pollIntervalMinutes": {
+          "type": "number",
+          "label": "pollIntervalMinutes",
+          "min": 2,
+          "max": 60,
+          "newLine": true,
+          "help": "pollIntervalHelp",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        },
+        "dailyRequestBudget": {
+          "type": "number",
+          "label": "dailyRequestBudget",
+          "min": 100,
+          "max": 1450,
+          "newLine": true,
+          "help": "dailyRequestBudgetHelp",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        }
+      }
+    },
+    "writesTab": {
+      "type": "panel",
+      "label": "writeHeader",
+      "items": {
+        "_writeAllowlistHint": {
+          "type": "staticText",
+          "text": "writeAllowlistHint",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "writeEnabled": {
+          "type": "checkbox",
+          "label": "writeEnabled",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        },
+        "minWriteIntervalSeconds": {
+          "type": "number",
+          "label": "minWriteIntervalSeconds",
+          "min": 5,
+          "max": 3600,
+          "newLine": true,
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 4,
+          "xl": 4
+        }
+      }
+    },
+    "diagnosticsTab": {
+      "type": "panel",
+      "label": "diagnosticsHeader",
+      "items": {
+        "_supportReportHint": {
+          "type": "staticText",
+          "text": "supportReportHint",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "createSupportReport": {
+          "type": "sendTo",
+          "label": "createSupportReport",
+          "command": "createSupportReport",
+          "variant": "contained",
+          "showProcess": true,
+          "jsonData": "{}",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 3,
+          "xl": 3
+        }
+      }
+    }
+  }
+}

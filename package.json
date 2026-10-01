@@ -1,0 +1,56 @@
+{
+  "name": "iobroker.viessmann-climate-api",
+  "version": "0.1.0",
+  "description": "ioBroker adapter for the Viessmann Climate Solutions REST API with protected write support.",
+  "author": "ntdev2024",
+  "homepage": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntdev2024/ioBroker.viessmann-climate-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api/issues"
+  },
+  "type": "module",
+  "main": "main.js",
+  "keywords": [
+    "ioBroker",
+    "viessmann",
+    "heat pump",
+    "climate",
+    "oauth"
+  ],
+  "files": [
+    "admin",
+    "docs/adapter-guide.md",
+    "docs/de/README.md",
+    "docs/en/README.md",
+    "src",
+    "CHANGELOG.md",
+    "io-package.json",
+    "main.js",
+    "README.md"
+  ],
+  "scripts": {
+    "test:unit": "node --test test/allowlist.test.js test/client.test.js test/lifecycle.test.js test/native-config.test.js test/oauth.test.js test/redaction.test.js test/state-ids.test.js test/state-sync.test.js test/write-queue.test.js",
+    "test:package": "mocha test/package.test.js --exit && node --test test/packlist.test.js",
+    "test:integration": "mocha test/integration.test.js --exit",
+    "test": "npm run test:unit && npm run test:package",
+    "check": "node --check main.js && node --check src/lib/runtime/poll-scheduler.js && node --check src/lib/security/native-config.js && node --check src/lib/security/redaction.js && node --check src/lib/viessmann-client/client.js && node --check src/lib/viessmann-client/oauth.js && node --check src/lib/write/write-queue.js && node --check src/lib/state/state-sync.js && node --check src/lib/http/oauth-server.js",
+    "lint": "eslint .",
+    "translate": "translate-adapter",
+    "prepack": "npm run check"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.4.3"
+  },
+  "devDependencies": {
+    "@iobroker/adapter-dev": "^1.5.0",
+    "@iobroker/eslint-config": "^2.3.4",
+    "@iobroker/testing": "^6.2.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

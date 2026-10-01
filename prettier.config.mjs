@@ -1,0 +1,10 @@
+import prettierConfig from "@iobroker/eslint-config/prettier.config.mjs";
+
+export default {
+  ...prettierConfig,
+  singleQuote: false,
+  tabWidth: 2,
+  trailingComma: "none",
+  printWidth: 120,
+  endOfLine: "lf"
+};

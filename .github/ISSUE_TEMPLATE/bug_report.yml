@@ -1,0 +1,67 @@
+name: Bug report
+description: Report a reproducible adapter problem without secrets or installation identifiers
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Do not include OAuth tokens, Client Secrets, authorization codes, PKCE data, installation IDs, gateway serial numbers or complete ioBroker object/state exports. Report security vulnerabilities privately according to SECURITY.md.
+  - type: input
+    id: adapter_version
+    attributes:
+      label: Adapter version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Runtime versions
+      description: Node.js, js-controller and Admin versions
+      placeholder: Node.js 22.x, js-controller 7.x, Admin 7.x
+    validations:
+      required: true
+  - type: dropdown
+    id: write_enabled
+    attributes:
+      label: Were writes enabled?
+      options:
+        - "No"
+        - "Yes"
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest repeatable sequence.
+      placeholder: |
+        1. Start the adapter
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized_log
+    attributes:
+      label: Sanitized log excerpt
+      description: Use debug logging only as long as needed and redact every credential and installation-specific identifier.
+      render: shell
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Data-safety confirmation
+      options:
+        - label: I removed tokens, secrets, codes, serial numbers, installation IDs and personal data.
+          required: true
+        - label: This report does not describe a security vulnerability.
+          required: true

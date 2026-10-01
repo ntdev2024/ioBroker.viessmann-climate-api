@@ -1,0 +1,85 @@
+name: viessmann-climate-api-stage
+
+x-stage-common: &stage-common
+  init: true
+  working_dir: /workspace
+  command: ["sleep", "infinity"]
+  restart: unless-stopped
+  read_only: true
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  environment:
+    CI: "true"
+    npm_config_cache: /npm-cache
+  volumes:
+    - ${ADAPTER_SOURCE:-./source}:/source:ro
+    - ./run-lifecycle.sh:/stage/run-lifecycle.sh:ro
+    - ./run-tests.sh:/stage/run-tests.sh:ro
+  networks:
+    - stage
+
+services:
+  node20:
+    <<: *stage-common
+    image: node:20-bookworm-slim
+    environment:
+      CI: "true"
+      EXPECTED_NODE_MAJOR: "20"
+      IOBROKER_TEST_CONTROLLER_VERSION: "7.2.2"
+      npm_config_cache: /npm-cache
+    volumes:
+      - ${ADAPTER_SOURCE:-./source}:/source:ro
+      - ./run-lifecycle.sh:/stage/run-lifecycle.sh:ro
+      - ./run-tests.sh:/stage/run-tests.sh:ro
+      - node20-workspace:/workspace
+      - node20-cache:/npm-cache
+      - node20-tmp:/tmp
+
+  node22:
+    <<: *stage-common
+    image: node:22-bookworm-slim
+    environment:
+      CI: "true"
+      EXPECTED_NODE_MAJOR: "22"
+      IOBROKER_TEST_CONTROLLER_VERSION: "7.2.3"
+      npm_config_cache: /npm-cache
+    volumes:
+      - ${ADAPTER_SOURCE:-./source}:/source:ro
+      - ./run-lifecycle.sh:/stage/run-lifecycle.sh:ro
+      - ./run-tests.sh:/stage/run-tests.sh:ro
+      - node22-workspace:/workspace
+      - node22-cache:/npm-cache
+      - node22-tmp:/tmp
+
+  node24:
+    <<: *stage-common
+    image: node:24-bookworm-slim
+    environment:
+      CI: "true"
+      EXPECTED_NODE_MAJOR: "24"
+      IOBROKER_TEST_CONTROLLER_VERSION: "7.2.3"
+      npm_config_cache: /npm-cache
+    volumes:
+      - ${ADAPTER_SOURCE:-./source}:/source:ro
+      - ./run-lifecycle.sh:/stage/run-lifecycle.sh:ro
+      - ./run-tests.sh:/stage/run-tests.sh:ro
+      - node24-workspace:/workspace
+      - node24-cache:/npm-cache
+      - node24-tmp:/tmp
+
+networks:
+  stage:
+    driver: bridge
+
+volumes:
+  node20-workspace:
+  node20-cache:
+  node20-tmp:
+  node22-workspace:
+  node22-cache:
+  node22-tmp:
+  node24-workspace:
+  node24-cache:
+  node24-tmp:

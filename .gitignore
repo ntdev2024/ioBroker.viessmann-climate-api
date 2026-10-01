@@ -1,0 +1,40 @@
+# Dependencies and generated package metadata
+node_modules/
+
+# Local OAuth, discovery, and instance data
+.env.local
+.env.example
+.env.*.local
+.pkce.local.json
+tokens.local.json
+discovery.local.json
+*.local.json
+VIESSMANN_API_OBJECT_OVERVIEW.md
+docs/discovery-example.redacted.json
+
+# Private/local development material kept out of the public adapter repo
+docs/*
+!docs/adapter-guide.md
+!docs/de/
+!docs/de/README.md
+!docs/en/
+!docs/en/README.md
+scripts/
+tests/
+PUBLISHING.md
+
+# Build/package artifacts
+*.tgz
+*.tar.gz
+test-results/
+coverage/
+test-stage/source/
+
+# Runtime and editor noise
+.commitinfo
+*.log
+__pycache__/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

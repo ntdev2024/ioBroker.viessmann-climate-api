@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/ntdev2024/ioBroker.viessmann-climate-api/security/advisories/new
+    about: Report suspected vulnerabilities privately. Do not open a public issue.
+  - name: Viessmann API documentation
+    url: https://api.viessmann-climatesolutions.com/documentation
+    about: Check manufacturer API behavior, compatibility and account requirements.

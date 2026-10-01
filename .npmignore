@@ -1,0 +1,36 @@
+# Keep npm packs installable, but never ship local secrets or generated data.
+.env.local
+.env.example
+.env.*.local
+.pkce.local.json
+tokens.local.json
+discovery.local.json
+*.local.json
+VIESSMANN_API_OBJECT_OVERVIEW.md
+docs/discovery-example.redacted.json
+
+# Private/local development material
+docs/*
+!docs/adapter-guide.md
+!docs/de/
+!docs/de/README.md
+!docs/en/
+!docs/en/README.md
+scripts/
+test/
+tests/
+PUBLISHING.md
+
+# Repository-only files
+.git/
+.github/
+.vscode/
+.idea/
+test-results/
+coverage/
+
+# Generated archives and logs
+*.tgz
+*.tar.gz
+*.log
+__pycache__/

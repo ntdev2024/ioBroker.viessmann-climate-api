@@ -1,0 +1,35 @@
+name: Feature request
+description: Suggest a user-visible improvement or additional supported behavior
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the use case rather than publishing raw discovery data. Remove installation IDs, gateway serial numbers, account information and credentials.
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What should a user be able to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_behavior
+    attributes:
+      label: Proposed behavior
+      description: Describe expected states, configuration or workflow.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data-safety confirmation
+      options:
+        - label: I did not include secrets or installation-specific identifiers.
+          required: true

@@ -1,0 +1,172 @@
+{
+  "common": {
+    "name": "viessmann-climate-api",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "de": "Erste oeffentliche Vorschau mit geschuetzten Schreibzugriffen, sicherer OAuth-Speicherung, serialisiertem Polling und vollstaendigen Release-Pruefungen.",
+        "ru": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "pt": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "nl": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "fr": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "it": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "es": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "pl": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "uk": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
+        "zh-cn": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks."
+      },
+      "0.0.23": {
+        "en": "Prepared adapter metadata for ioBroker repository review and added clearer OAuth Client ID help.",
+        "de": "Adapter-Metadaten fuer die ioBroker-Repository-Pruefung vorbereitet und OAuth Client-ID-Hilfe erweitert.",
+        "ru": "Подготовлены метаданные адаптера для проверки репозитория ioBroker и улучшена справка по OAuth Client ID.",
+        "pt": "Os metadados do adaptador foram preparados para a revisão do repositório ioBroker e a ajuda do OAuth Client ID foi aprimorada.",
+        "nl": "De adaptermetadata zijn voorbereid voor de ioBroker-repositorycontrole en de hulp voor de OAuth Client ID is verduidelijkt.",
+        "fr": "Les métadonnées de l'adaptateur ont été préparées pour la revue du dépôt ioBroker et l'aide sur l'identifiant client OAuth a été clarifiée.",
+        "it": "Preparati i metadati dell'adattatore per la revisione del repository ioBroker e migliorata la guida per l'ID client OAuth.",
+        "es": "Se prepararon los metadatos del adaptador para la revisión del repositorio ioBroker y se aclaró la ayuda del ID de cliente OAuth.",
+        "pl": "Przygotowano metadane adaptera do przeglądu repozytorium ioBroker i ulepszono pomoc dotyczącą identyfikatora klienta OAuth.",
+        "uk": "Підготовлено метадані адаптера для перевірки репозиторію ioBroker та покращено довідку щодо OAuth Client ID.",
+        "zh-cn": "已为 ioBroker 存储库审核准备适配器元数据，并改进了 OAuth 客户端 ID 帮助。"
+      }
+    },
+    "titleLang": {
+      "en": "Viessmann Climate API",
+      "de": "Viessmann Climate API",
+      "ru": "Viessmann Climate API",
+      "pt": "Viessmann Climate API",
+      "nl": "Viessmann Climate API",
+      "fr": "Viessmann Climate API",
+      "it": "Viessmann Climate API",
+      "es": "Viessmann Climate API",
+      "pl": "Viessmann Climate API",
+      "uk": "Viessmann Climate API",
+      "zh-cn": "Viessmann Climate API"
+    },
+    "desc": {
+      "en": "Viessmann Climate Solutions API adapter for systems connected through Vitoconnect, with protected write support.",
+      "de": "Viessmann Climate Solutions API Adapter fuer ueber Vitoconnect angebundene Systeme mit geschuetzter Schreibfunktion.",
+      "ru": "Адаптер Viessmann Climate Solutions API для систем, подключенных через Vitoconnect, с защищённой записью.",
+      "pt": "Adaptador da API Viessmann Climate Solutions para sistemas conectados via Vitoconnect, com suporte de escrita protegida.",
+      "nl": "Viessmann Climate Solutions API-adapter voor systemen die via Vitoconnect zijn verbonden, met beveiligde schrijftoegang.",
+      "fr": "Adaptateur API Viessmann Climate Solutions pour les systèmes connectés via Vitoconnect, avec écriture protégée.",
+      "it": "Adattatore API Viessmann Climate Solutions per sistemi collegati tramite Vitoconnect, con scrittura protetta.",
+      "es": "Adaptador de la API Viessmann Climate Solutions para sistemas conectados mediante Vitoconnect, con escritura protegida.",
+      "pl": "Adapter Viessmann Climate Solutions API dla systemów połączonych przez Vitoconnect, z chronionym zapisem.",
+      "uk": "Адаптер Viessmann Climate Solutions API для систем, підключених через Vitoconnect, із захищеним записом.",
+      "zh-cn": "适用于通过 Vitoconnect 连接系统的 Viessmann Climate Solutions API 适配器，支持受保护的写入。"
+    },
+    "authors": [
+      "ntdev2024"
+    ],
+    "keywords": [
+      "viessmann",
+      "heat pump",
+      "vitoconnect",
+      "climate",
+      "oauth",
+      "ems"
+    ],
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free",
+      "link": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api/blob/main/LICENSE"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "viessmann-climate-api.png",
+    "enabled": false,
+    "extIcon": "https://raw.githubusercontent.com/ntdev2024/ioBroker.viessmann-climate-api/main/admin/viessmann-climate-api.png",
+    "readme": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "climate-control",
+    "tier": 3,
+    "compact": true,
+    "supportedMessages": {
+      "custom": true
+    },
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "docs": {
+      "en": [
+        "docs/en/README.md"
+      ],
+      "de": [
+        "docs/de/README.md"
+      ]
+    },
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ]
+  },
+  "encryptedNative": [
+    "clientSecret",
+    "accessToken",
+    "refreshToken",
+    "oauthCode",
+    "oauthPkceVerifier",
+    "oauthPkceState"
+  ],
+  "protectedNative": [
+    "clientSecret",
+    "accessToken",
+    "refreshToken",
+    "oauthCode",
+    "oauthPkceVerifier",
+    "oauthPkceState"
+  ],
+  "native": {
+    "clientId": "",
+    "clientSecret": "",
+    "redirectUri": "http://localhost:4200/",
+    "scope": "IoT User offline_access",
+    "oauthPublicRedirectUri": "http://localhost:8097/callback",
+    "oauthCallbackEnabled": true,
+    "bind": "0.0.0.0",
+    "port": 8097,
+    "oauthCallbackPath": "/callback",
+    "accessToken": "",
+    "refreshToken": "",
+    "tokenExpiresAt": 0,
+    "oauthLoginUrl": "",
+    "oauthCode": "",
+    "oauthPkceVerifier": "",
+    "oauthPkceState": "",
+    "oauthActiveRedirectUri": "",
+    "oauthTokenCreatedAt": "",
+    "pollIntervalMinutes": 5,
+    "dailyRequestBudget": 1450,
+    "writeEnabled": false,
+    "minWriteIntervalSeconds": 30,
+    "paypalDonationUrl": ""
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Viessmann Climate API connection",
+          "de": "Viessmann Climate API Verbindung"
+        },
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
