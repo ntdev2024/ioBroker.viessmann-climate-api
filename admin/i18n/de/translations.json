@@ -1,7 +1,7 @@
 {
   "oauthHeader": "OAuth",
   "donationHeader": "Kaffeekasse",
-  "donationText": "Für ein paar Euro mehr läuft der Adapter nicht schneller, aber der Entwickler tippt vielleicht mit deutlich besserem Kaffee. PayPal-Platzhalter für freiwillige Unterstützung.",
+  "donationText": "Für ein paar Dollar mehr läuft der Adapter nicht schneller, aber der Entwickler tippt mit deutlich besserem Kaffee. PayPal-Platzhalter für freiwillige Unterstützung.",
   "paypalDonationUrl": "PayPal-Spendenlink",
   "paypalDonationUrlHelp": "Optionaler PayPal-Link. Für die erste Version ist dies nur ein Platzhalter in der Konfiguration.",
   "openDonationUrl": "PayPal-Link öffnen",

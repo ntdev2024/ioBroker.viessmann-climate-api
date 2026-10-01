@@ -22,17 +22,6 @@
           "lg": 12,
           "xl": 12
         },
-        "paypalDonationUrl": {
-          "type": "text",
-          "label": "paypalDonationUrl",
-          "newLine": true,
-          "help": "paypalDonationUrlHelp",
-          "xs": 12,
-          "sm": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12
-        },
         "openDonationUrl": {
           "type": "sendTo",
           "label": "openDonationUrl",
