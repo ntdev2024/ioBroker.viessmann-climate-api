@@ -69,6 +69,22 @@ services:
       - node24-cache:/npm-cache
       - node24-tmp:/tmp
 
+  node26:
+    <<: *stage-common
+    image: node:26-bookworm-slim
+    environment:
+      CI: "true"
+      EXPECTED_NODE_MAJOR: "26"
+      IOBROKER_TEST_CONTROLLER_VERSION: "7.2.3"
+      npm_config_cache: /npm-cache
+    volumes:
+      - ${ADAPTER_SOURCE:-./source}:/source:ro
+      - ./run-lifecycle.sh:/stage/run-lifecycle.sh:ro
+      - ./run-tests.sh:/stage/run-tests.sh:ro
+      - node26-workspace:/workspace
+      - node26-cache:/npm-cache
+      - node26-tmp:/tmp
+
 networks:
   stage:
     driver: bridge
@@ -83,3 +99,6 @@ volumes:
   node24-workspace:
   node24-cache:
   node24-tmp:
+  node26-workspace:
+  node26-cache:
+  node26-tmp:

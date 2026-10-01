@@ -1,6 +1,6 @@
 # Persistent Docker test stage
 
-This stage keeps three isolated Linux containers for Node.js 20, 22 and 24. Node.js 22 and 24 form the supported pre-release gate required by the current ioBroker checker. The Node.js 20 container remains available for explicit legacy diagnostics, but it is not part of the default matrix because the adapter and current `@iobroker/testing` require Node.js 22. It does not replace the public Windows/macOS matrix or a real Vitoconnect/Vitocal test on a dedicated ioBroker host.
+This stage keeps four isolated Linux containers for Node.js 20, 22, 24 and 26. Node.js 22, 24 and 26 form the supported pre-release gate required by the current ioBroker checker. The Node.js 20 container remains available for explicit legacy diagnostics, but it is not part of the default matrix because the adapter and current `@iobroker/testing` require Node.js 22. It does not replace the public Windows/macOS matrix or a real Vitoconnect/Vitocal test on a dedicated ioBroker host.
 
 ## Layout
 

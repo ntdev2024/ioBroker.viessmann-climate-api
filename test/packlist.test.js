@@ -4,7 +4,6 @@ import { test } from "node:test";
 
 const requiredFiles = [
   "README.md",
-  "CHANGELOG.md",
   "io-package.json",
   "main.js",
   "admin/jsonConfig.json",

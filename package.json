@@ -26,7 +26,6 @@
     "docs/de/README.md",
     "docs/en/README.md",
     "src",
-    "CHANGELOG.md",
     "io-package.json",
     "main.js",
     "README.md"

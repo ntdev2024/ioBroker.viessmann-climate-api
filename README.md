@@ -4,7 +4,7 @@ Connects ioBroker to the [Viessmann Climate Solutions API](https://api.viessmann
 
 ## Status
 
-This project is in public pre-release review. It is not yet published in the ioBroker repositories or on npm. Treat it as test software and keep writes disabled until the exposed commands and parameters have been reviewed for your installation.
+This project is in public pre-release review. Version 0.1.0 is published on npm, but the adapter is not yet listed in the official ioBroker repositories. Treat it as test software and keep writes disabled until the exposed commands and parameters have been reviewed for your installation.
 
 Implemented and automatically tested:
 
@@ -17,7 +17,7 @@ Implemented and automatically tested:
 
 ## Requirements
 
-- Node.js 22 or 24
+- Node.js 22, 24 or 26
 - js-controller 6.0.11 or newer
 - Admin 7.6.20 or newer
 - a compatible Viessmann installation connected to the Viessmann cloud
@@ -28,9 +28,7 @@ Viessmann describes the available plans on its [API products page](https://devel
 
 ## Installation
 
-The adapter is not released yet. Do not install a similarly named npm package as a substitute.
-
-For a review build, enable expert mode in the ioBroker Admin UI and use **Adapters → Install from custom URL** with a tagged archive or the repository URL. After the public release, install the adapter normally from the ioBroker adapter list. Create a separate test instance first and leave `writeEnabled` off.
+The adapter is awaiting inclusion in an official ioBroker repository. After it has been listed, install it from the normal adapter list in ioBroker Admin. Create a separate test instance first and leave `writeEnabled` off.
 
 Updates must preserve the instance configuration, but OAuth credentials and writes should still be checked after every pre-release update.
 
@@ -93,7 +91,18 @@ Choose the adapter that matches your connection method and existing automation. 
 - Remove tokens, secrets, callback codes, serial numbers, installation IDs and personal data from every log and screenshot.
 - Include the adapter version, Node.js version, js-controller version and a minimal reproduction.
 
-See the [changelog](CHANGELOG.md) for user-visible changes.
+## Changelog
+
+### 0.1.0 (2026-10-01)
+
+- Renamed the public adapter identity to `viessmann-climate-api`.
+- Added portable package, integration, lifecycle and compact-mode tests.
+- Serialized polling and added request timeouts, retry backoff and complete unload cleanup.
+- Added encrypted OAuth credential persistence and centralized secret redaction.
+- Expanded English and German user, support, security and AI-assistance documentation.
+- Added public issue templates and strengthened package and repository hygiene checks.
+
+Older `0.0.x` versions were private development builds and are not public releases.
 
 ## AI-assisted development
 

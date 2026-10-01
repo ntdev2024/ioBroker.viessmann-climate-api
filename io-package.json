@@ -6,28 +6,15 @@
       "0.1.0": {
         "en": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
         "de": "Erste oeffentliche Vorschau mit geschuetzten Schreibzugriffen, sicherer OAuth-Speicherung, serialisiertem Polling und vollstaendigen Release-Pruefungen.",
-        "ru": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "pt": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "nl": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "fr": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "it": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "es": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "pl": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "uk": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
-        "zh-cn": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks."
-      },
-      "0.0.23": {
-        "en": "Prepared adapter metadata for ioBroker repository review and added clearer OAuth Client ID help.",
-        "de": "Adapter-Metadaten fuer die ioBroker-Repository-Pruefung vorbereitet und OAuth Client-ID-Hilfe erweitert.",
-        "ru": "Подготовлены метаданные адаптера для проверки репозитория ioBroker и улучшена справка по OAuth Client ID.",
-        "pt": "Os metadados do adaptador foram preparados para a revisão do repositório ioBroker e a ajuda do OAuth Client ID foi aprimorada.",
-        "nl": "De adaptermetadata zijn voorbereid voor de ioBroker-repositorycontrole en de hulp voor de OAuth Client ID is verduidelijkt.",
-        "fr": "Les métadonnées de l'adaptateur ont été préparées pour la revue du dépôt ioBroker et l'aide sur l'identifiant client OAuth a été clarifiée.",
-        "it": "Preparati i metadati dell'adattatore per la revisione del repository ioBroker e migliorata la guida per l'ID client OAuth.",
-        "es": "Se prepararon los metadatos del adaptador para la revisión del repositorio ioBroker y se aclaró la ayuda del ID de cliente OAuth.",
-        "pl": "Przygotowano metadane adaptera do przeglądu repozytorium ioBroker i ulepszono pomoc dotyczącą identyfikatora klienta OAuth.",
-        "uk": "Підготовлено метадані адаптера для перевірки репозиторію ioBroker та покращено довідку щодо OAuth Client ID.",
-        "zh-cn": "已为 ioBroker 存储库审核准备适配器元数据，并改进了 OAuth 客户端 ID 帮助。"
+        "ru": "Первый публичный предварительный выпуск с защищённой записью, безопасным хранением OAuth, последовательным опросом и полными проверками выпуска.",
+        "pt": "Primeira versão pública de pré-visualização com escrita protegida, armazenamento OAuth seguro, consulta serializada e verificações completas de lançamento.",
+        "nl": "Eerste openbare testversie met beveiligde schrijftoegang, veilige OAuth-opslag, geserialiseerde polling en volledige releasecontroles.",
+        "fr": "Première préversion publique avec écriture protégée, stockage OAuth sécurisé, interrogation sérialisée et contrôles de publication complets.",
+        "it": "Prima anteprima pubblica con scrittura protetta, archiviazione OAuth sicura, polling serializzato e controlli di rilascio completi.",
+        "es": "Primera versión preliminar pública con escritura protegida, almacenamiento OAuth seguro, sondeo serializado y comprobaciones completas de publicación.",
+        "pl": "Pierwsza publiczna wersja testowa z chronionym zapisem, bezpiecznym przechowywaniem OAuth, szeregowym odpytywaniem i pełnymi kontrolami wydania.",
+        "uk": "Перший публічний попередній випуск із захищеним записом, безпечним зберіганням OAuth, послідовним опитуванням і повними перевірками випуску.",
+        "zh-cn": "首个公开预览版，支持受保护的写入、安全的 OAuth 存储、串行轮询和完整的发布检查。"
       }
     },
     "titleLang": {
@@ -70,7 +57,7 @@
     "licenseInformation": {
       "license": "MIT",
       "type": "free",
-      "link": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api/blob/main/LICENSE"
+      "link": "https://opensource.org/license/mit"
     },
     "platform": "Javascript/Node.js",
     "icon": "viessmann-climate-api.png",

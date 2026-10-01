@@ -11,7 +11,7 @@ result=0
 
 docker compose up -d
 
-services="${STAGE_SERVICES:-node22 node24}"
+services="${STAGE_SERVICES:-node22 node24 node26}"
 for service in ${services}; do
   printf '\n[%s] %s\n' "$(date -u +%FT%TZ)" "${service}" | tee -a "${log_file}"
   if ! docker compose exec -T "${service}" /stage/run-tests.sh 2>&1 | tee -a "${log_file}"; then
