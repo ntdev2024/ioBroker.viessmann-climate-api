@@ -1,3 +1,6 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import * as utils from "@iobroker/adapter-core";
 import { OAuthCallbackServer } from "./src/lib/http/oauth-server.js";
 import { SerializedPollScheduler } from "./src/lib/runtime/poll-scheduler.js";
@@ -681,7 +684,7 @@ export function startAdapter(options = {}) {
   return new ViessmannApiAdapter(options);
 }
 
-if (process.argv[1] === new URL(import.meta.url).pathname) {
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
   startAdapter();
 }
 
