@@ -34,6 +34,6 @@ test("donation URL stays hidden while donation copy and button remain visible", 
   assert.equal(items._donationText.text, "donationText");
   assert.equal(items.openDonationUrl.label, "openDonationUrl");
   assert.equal(items.openDonationUrl.openUrl, true);
-  assert.equal(items.openDonationUrl.disabled, "!data.paypalDonationUrl");
-  assert.equal(items.openDonationUrl.jsonData, '{"paypalDonationUrl":"${data.paypalDonationUrl}"}');
+  assert.equal(Object.hasOwn(items.openDonationUrl, "disabled"), false);
+  assert.equal(Object.hasOwn(items.openDonationUrl, "jsonData"), false);
 });

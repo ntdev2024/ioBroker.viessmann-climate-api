@@ -30,8 +30,6 @@
           "showProcess": true,
           "openUrl": true,
           "window": "_blank",
-          "disabled": "!data.paypalDonationUrl",
-          "jsonData": "{\"paypalDonationUrl\":\"${data.paypalDonationUrl}\"}",
           "newLine": true,
           "xs": 12,
           "sm": 12,

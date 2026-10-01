@@ -31,11 +31,11 @@
     "README.md"
   ],
   "scripts": {
-    "test:unit": "node --test test/allowlist.test.js test/client.test.js test/lifecycle.test.js test/native-config.test.js test/oauth.test.js test/redaction.test.js test/state-ids.test.js test/state-sync.test.js test/write-queue.test.js",
+    "test:unit": "node --test test/allowlist.test.js test/client.test.js test/donation.test.js test/lifecycle.test.js test/native-config.test.js test/oauth.test.js test/redaction.test.js test/state-ids.test.js test/state-sync.test.js test/write-queue.test.js",
     "test:package": "mocha test/package.test.js --exit && node --test test/packlist.test.js",
     "test:integration": "mocha test/integration.test.js --exit",
     "test": "npm run test:unit && npm run test:package",
-    "check": "node --check main.js && node --check src/lib/runtime/poll-scheduler.js && node --check src/lib/security/native-config.js && node --check src/lib/security/redaction.js && node --check src/lib/viessmann-client/client.js && node --check src/lib/viessmann-client/oauth.js && node --check src/lib/write/write-queue.js && node --check src/lib/state/state-sync.js && node --check src/lib/http/oauth-server.js",
+    "check": "node --check main.js && node --check src/lib/runtime/poll-scheduler.js && node --check src/lib/security/native-config.js && node --check src/lib/security/redaction.js && node --check src/lib/support/donation.js && node --check src/lib/viessmann-client/client.js && node --check src/lib/viessmann-client/oauth.js && node --check src/lib/write/write-queue.js && node --check src/lib/state/state-sync.js && node --check src/lib/http/oauth-server.js",
     "lint": "eslint .",
     "translate": "translate-adapter",
     "prepack": "npm run check"

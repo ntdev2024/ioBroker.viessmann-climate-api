@@ -134,8 +134,7 @@
     "pollIntervalMinutes": 5,
     "dailyRequestBudget": 1450,
     "writeEnabled": false,
-    "minWriteIntervalSeconds": 30,
-    "paypalDonationUrl": ""
+    "minWriteIntervalSeconds": 30
   },
   "objects": [],
   "instanceObjects": [

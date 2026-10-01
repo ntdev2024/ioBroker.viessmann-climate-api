@@ -7,6 +7,7 @@ import { SerializedPollScheduler } from "./src/lib/runtime/poll-scheduler.js";
 import { encryptNativePatch } from "./src/lib/security/native-config.js";
 import { redactSensitiveText, safeErrorMessage as redactErrorMessage } from "./src/lib/security/redaction.js";
 import { StateSync } from "./src/lib/state/state-sync.js";
+import { donationLinkResponse } from "./src/lib/support/donation.js";
 import { ViessmannClient } from "./src/lib/viessmann-client/client.js";
 import { discoverEquipment } from "./src/lib/viessmann-client/discovery.js";
 import {
@@ -206,21 +207,7 @@ export class ViessmannApiAdapter extends utils.Adapter {
   }
 
   handleOpenDonationUrl(message) {
-    const data = message.message || {};
-    const url = data.paypalDonationUrl || this.config.paypalDonationUrl;
-    if (!url) {
-      throw new Error("Missing PayPal donation URL.");
-    }
-    if (!/^https:\/\/(www\.)?paypal\.(com|me)\//i.test(url)) {
-      throw new Error(
-        "PayPal donation URL must start with https://paypal.com/, https://www.paypal.com/ or https://paypal.me/."
-      );
-    }
-    this.reply(message, {
-      url,
-      openUrl: url,
-      window: "_blank"
-    });
+    this.reply(message, donationLinkResponse());
   }
 
   async startOAuthCallbackServer() {
