@@ -26,9 +26,7 @@ test("encryptNativePatch encrypts secrets without mutating runtime values", () =
 });
 
 test("donation URL stays hidden while donation copy and button remain visible", () => {
-  const adminConfig = JSON.parse(
-    readFileSync(new URL("../admin/jsonConfig.json", import.meta.url), "utf8")
-  );
+  const adminConfig = JSON.parse(readFileSync(new URL("../admin/jsonConfig.json", import.meta.url), "utf8"));
   const items = adminConfig.items.oauthTab.items;
 
   assert.equal(Object.hasOwn(items, "paypalDonationUrl"), false);
@@ -37,8 +35,5 @@ test("donation URL stays hidden while donation copy and button remain visible", 
   assert.equal(items.openDonationUrl.label, "openDonationUrl");
   assert.equal(items.openDonationUrl.openUrl, true);
   assert.equal(items.openDonationUrl.disabled, "!data.paypalDonationUrl");
-  assert.equal(
-    items.openDonationUrl.jsonData,
-    '{"paypalDonationUrl":"${data.paypalDonationUrl}"}'
-  );
+  assert.equal(items.openDonationUrl.jsonData, '{"paypalDonationUrl":"${data.paypalDonationUrl}"}');
 });
