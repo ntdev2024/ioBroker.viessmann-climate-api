@@ -1,6 +1,6 @@
 {
   "name": "iobroker.viessmann-climate-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ioBroker adapter for the Viessmann Climate Solutions REST API with protected write support.",
   "author": "ntdev2024 <iobroker.ntdev2024@web.de>",
   "homepage": "https://github.com/ntdev2024/ioBroker.viessmann-climate-api#readme",

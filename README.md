@@ -4,7 +4,7 @@ Connects ioBroker to the [Viessmann Climate Solutions API](https://api.viessmann
 
 ## Status
 
-This project is in public pre-release review. Version 0.1.0 is published on npm, but the adapter is not yet listed in the official ioBroker repositories. Treat it as test software and keep writes disabled until the exposed commands and parameters have been reviewed for your installation.
+This project is in public pre-release review. Public preview versions are published on npm, but the adapter is not yet listed in the official ioBroker repositories. Treat it as test software and keep writes disabled until the exposed commands and parameters have been reviewed for your installation.
 
 Implemented and automatically tested:
 
@@ -92,6 +92,12 @@ Choose the adapter that matches your connection method and existing automation. 
 - Include the adapter version, Node.js version, js-controller version and a minimal reproduction.
 
 ## Changelog
+
+### 0.1.1 (2026-10-02)
+
+- Fixed the donation button to use the adapter's built-in PayPal URL.
+- Removed the editable donation URL and its placeholder help text from the Admin UI.
+- Added regression coverage for the packaged Admin configuration and donation response.
 
 ### 0.1.0 (2026-10-01)
 

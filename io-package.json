@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "viessmann-climate-api",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "Fix the donation button to use the adapter's fixed PayPal URL and remove the editable placeholder field from the admin UI.",
+        "de": "Der Spendenbutton verwendet jetzt die feste PayPal-URL des Adapters; das editierbare Platzhalterfeld wurde aus der Admin-Oberflaeche entfernt.",
+        "ru": "Кнопка пожертвования теперь использует фиксированный URL PayPal адаптера; редактируемое поле-заполнитель удалено из интерфейса администратора.",
+        "pt": "O botão de doação agora usa o URL fixo do PayPal do adaptador; o campo de espaço reservado editável foi removido da interface de administração.",
+        "nl": "De donatieknop gebruikt nu de vaste PayPal-URL van de adapter; het bewerkbare tijdelijke veld is uit de beheerinterface verwijderd.",
+        "fr": "Le bouton de don utilise désormais l'URL PayPal fixe de l'adaptateur ; le champ modifiable provisoire a été supprimé de l'interface d'administration.",
+        "it": "Il pulsante per le donazioni ora usa l'URL PayPal fisso dell'adattatore; il campo segnaposto modificabile è stato rimosso dall'interfaccia di amministrazione.",
+        "es": "El botón de donación ahora usa la URL fija de PayPal del adaptador; el campo de marcador editable se eliminó de la interfaz de administración.",
+        "pl": "Przycisk darowizny używa teraz stałego adresu URL PayPal adaptera; edytowalne pole zastępcze usunięto z interfejsu administracyjnego.",
+        "uk": "Кнопка пожертви тепер використовує фіксовану URL-адресу PayPal адаптера; редаговане поле-заповнювач видалено з інтерфейсу адміністратора.",
+        "zh-cn": "捐赠按钮现在使用适配器内置的固定 PayPal URL；可编辑的占位字段已从管理界面中移除。"
+      },
       "0.1.0": {
         "en": "First public preview with protected writes, secure OAuth storage, serialized polling and complete release checks.",
         "de": "Erste oeffentliche Vorschau mit geschuetzten Schreibzugriffen, sicherer OAuth-Speicherung, serialisiertem Polling und vollstaendigen Release-Pruefungen.",
@@ -43,17 +56,8 @@
       "uk": "Адаптер Viessmann Climate Solutions API для систем, підключених через Vitoconnect, із захищеним записом.",
       "zh-cn": "适用于通过 Vitoconnect 连接系统的 Viessmann Climate Solutions API 适配器，支持受保护的写入。"
     },
-    "authors": [
-      "ntdev2024 <iobroker.ntdev2024@web.de>"
-    ],
-    "keywords": [
-      "viessmann",
-      "heat pump",
-      "vitoconnect",
-      "climate",
-      "oauth",
-      "ems"
-    ],
+    "authors": ["ntdev2024 <iobroker.ntdev2024@web.de>"],
+    "keywords": ["viessmann", "heat pump", "vitoconnect", "climate", "oauth", "ems"],
     "licenseInformation": {
       "license": "MIT",
       "type": "free",
@@ -75,12 +79,8 @@
     "connectionType": "cloud",
     "dataSource": "poll",
     "docs": {
-      "en": [
-        "docs/en/README.md"
-      ],
-      "de": [
-        "docs/de/README.md"
-      ]
+      "en": ["docs/en/README.md"],
+      "de": ["docs/de/README.md"]
     },
     "adminUI": {
       "config": "json"
