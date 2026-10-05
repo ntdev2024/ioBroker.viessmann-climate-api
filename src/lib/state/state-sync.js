@@ -28,10 +28,50 @@ function normalizeValue(value) {
   return value;
 }
 
+function roleForValue(rawValue, normalizedValue) {
+  if (rawValue !== null && typeof rawValue === "object") {
+    return "json";
+  }
+  switch (stateType(normalizedValue)) {
+    case "boolean":
+      return "indicator";
+    case "number":
+      return "value";
+    default:
+      return "text";
+  }
+}
+
 export class StateSync {
   constructor(adapter) {
     this.adapter = adapter;
     this.activeControlIds = new Set();
+    this.ensuredHierarchyIds = new Set();
+  }
+
+  async ensureHierarchy(id) {
+    const parts = id.split(".");
+    for (let index = 1; index < parts.length; index++) {
+      const parentId = parts.slice(0, index).join(".");
+      if (this.ensuredHierarchyIds.has(parentId)) {
+        continue;
+      }
+      await this.adapter.setObjectNotExistsAsync(parentId, {
+        type: "channel",
+        common: { name: parts[index - 1] },
+        native: {}
+      });
+      this.ensuredHierarchyIds.add(parentId);
+    }
+  }
+
+  async ensureObject(id, object) {
+    await this.ensureHierarchy(id);
+    if (typeof this.adapter.extendObjectAsync === "function") {
+      await this.adapter.extendObjectAsync(id, object);
+    } else {
+      await this.adapter.setObjectNotExistsAsync(id, object);
+    }
   }
 
   async ensureBaseStates() {
@@ -42,14 +82,14 @@ export class StateSync {
       ["writes", "Viessmann write discovery and allowlist"],
       ["diagnostics", "Viessmann adapter diagnostics"]
     ]) {
-      await this.adapter.setObjectNotExistsAsync(channel[0], {
+      await this.ensureObject(channel[0], {
         type: "channel",
         common: { name: channel[1] },
         native: {}
       });
     }
 
-    await this.adapter.setObjectNotExistsAsync("info.connection", {
+    await this.ensureObject("info.connection", {
       type: "state",
       common: {
         name: "Viessmann Climate API connection",
@@ -60,7 +100,7 @@ export class StateSync {
       },
       native: {}
     });
-    await this.adapter.setObjectNotExistsAsync("write.command", {
+    await this.ensureObject("write.command", {
       type: "state",
       common: {
         name: "Queued write command as JSON",
@@ -78,7 +118,7 @@ export class StateSync {
         }
       }
     });
-    await this.adapter.setObjectNotExistsAsync("write.lastResult", {
+    await this.ensureObject("write.lastResult", {
       type: "state",
       common: {
         name: "Last write result",
@@ -89,7 +129,7 @@ export class StateSync {
       },
       native: {}
     });
-    await this.adapter.setObjectNotExistsAsync("write.queueLength", {
+    await this.ensureObject("write.queueLength", {
       type: "state",
       common: {
         name: "Write queue length",
@@ -123,13 +163,13 @@ export class StateSync {
     await this.ensureState("diagnostics.runtime.memory.heapUsedMb", "Used heap memory in MB", "number", "value");
     await this.ensureState("diagnostics.runtime.memory.heapTotalMb", "Total heap memory in MB", "number", "value");
     await this.ensureState("diagnostics.runtime.uptimeSeconds", "Adapter process uptime in seconds", "number", "value");
-    await this.adapter.setObjectNotExistsAsync("diagnostics.support.createReport", {
+    await this.ensureObject("diagnostics.support.createReport", {
       type: "state",
       common: {
         name: "Create redacted Viessmann support report",
         type: "boolean",
         role: "button",
-        read: true,
+        read: false,
         write: true,
         def: false
       },
@@ -164,7 +204,7 @@ export class StateSync {
   }
 
   async syncFeatureAt({ baseId, propertyId, commandId, deviceId, featureName, feature }) {
-    await this.adapter.setObjectNotExistsAsync(baseId, {
+    await this.ensureObject(baseId, {
       type: "channel",
       common: {
         name: featureName
@@ -181,14 +221,15 @@ export class StateSync {
 
   async syncProperties(deviceId, featureName, properties, propertyId) {
     for (const [propertyName, property] of Object.entries(properties)) {
-      const value = normalizeValue(property?.value ?? property);
+      const rawValue = property?.value ?? property;
+      const value = normalizeValue(rawValue);
       const id = propertyId(propertyName);
-      await this.adapter.setObjectNotExistsAsync(id, {
+      await this.ensureObject(id, {
         type: "state",
         common: {
           name: `${featureName} ${propertyName}`,
           type: stateType(value),
-          role: "value",
+          role: roleForValue(rawValue, value),
           read: true,
           write: false,
           unit: property?.unit
@@ -210,7 +251,7 @@ export class StateSync {
       await this.syncDiscoveredCommand(deviceId, featureName, commandName, command, executable);
       const allowed = executable && (await this.isCommandEnabled(featureName, commandName));
       hasAllowedCommand = hasAllowedCommand || allowed;
-      await this.adapter.setObjectNotExistsAsync(id, {
+      await this.ensureObject(id, {
         type: "state",
         common: {
           name: `${featureName} ${commandName}`,
@@ -251,7 +292,7 @@ export class StateSync {
       uri: command?.uri || ""
     });
 
-    await this.adapter.setObjectNotExistsAsync(id, {
+    await this.ensureObject(id, {
       type: "state",
       common: {
         name: `${featureName} ${commandName} discovered command`,
@@ -271,7 +312,7 @@ export class StateSync {
     await this.adapter.setStateAsync(id, { val: value, ack: true });
 
     const allowId = allowlistCommandStateId(featureName, commandName);
-    await this.adapter.setObjectNotExistsAsync(allowId, {
+    await this.ensureObject(allowId, {
       type: "state",
       common: {
         name: `${featureName} ${commandName} enabled`,
@@ -306,7 +347,7 @@ export class StateSync {
   async ensureControlCommand(deviceId, featureName, commandName, command) {
     const id = controlCommandStateId(featureName, commandName);
     this.activeControlIds.add(`${this.adapter.namespace}.${id}`);
-    await this.adapter.setObjectNotExistsAsync(id, {
+    await this.ensureObject(id, {
       type: "state",
       common: {
         name: `${featureName} ${commandName}`,
@@ -329,15 +370,16 @@ export class StateSync {
 
   async syncControlCurrentProperties(featureName, properties) {
     for (const [propertyName, property] of Object.entries(properties)) {
-      const value = normalizeValue(property?.value ?? property);
+      const rawValue = property?.value ?? property;
+      const value = normalizeValue(rawValue);
       const id = controlCurrentStateId(featureName, propertyName);
       this.activeControlIds.add(`${this.adapter.namespace}.${id}`);
-      await this.adapter.setObjectNotExistsAsync(id, {
+      await this.ensureObject(id, {
         type: "state",
         common: {
           name: `${featureName} current ${propertyName}`,
           type: stateType(value),
-          role: "value",
+          role: roleForValue(rawValue, value),
           read: true,
           write: false,
           unit: property?.unit
@@ -403,7 +445,7 @@ export class StateSync {
       }
     }
 
-    await this.mapSummary(index, "summary.gateway.timezone", "device.timezone", "value", "string", "value");
+    await this.mapSummary(index, "summary.gateway.timezone", "device.timezone", "value", "string", "text");
     await this.mapSummary(index, "summary.gateway.wifiStrength", "tcu.wifi", "strength", "number", "value", "");
     await this.mapSummary(index, "summary.system.serial", "device.serial", "value", "string", "text");
     await this.mapSummary(
@@ -460,23 +502,16 @@ export class StateSync {
       "celsius"
     );
 
-    await this.mapSummary(index, "summary.dhw.active", "heating.dhw", "active", "boolean", "indicator.state");
+    await this.mapSummary(index, "summary.dhw.active", "heating.dhw", "active", "boolean", "indicator");
     await this.mapSummary(index, "summary.dhw.status", "heating.dhw", "status", "string", "text");
-    await this.mapSummary(
-      index,
-      "summary.dhw.isHeating",
-      "heating.dhw.charging",
-      "active",
-      "boolean",
-      "indicator.state"
-    );
+    await this.mapSummary(index, "summary.dhw.isHeating", "heating.dhw.charging", "active", "boolean", "indicator");
     await this.mapSummary(
       index,
       "summary.dhw.isOneTimeChargeActive",
       "heating.dhw.oneTimeCharge",
       "active",
       "boolean",
-      "indicator.state"
+      "indicator"
     );
     await this.mapSummary(
       index,
@@ -528,7 +563,7 @@ export class StateSync {
       "heating.dhw.schedule",
       "active",
       "boolean",
-      "indicator.state"
+      "indicator"
     );
 
     await this.mapSummary(
@@ -537,7 +572,7 @@ export class StateSync {
       "heating.circuits.1",
       "active",
       "boolean",
-      "indicator.state"
+      "indicator"
     );
     await this.mapSummary(index, "summary.heating.house.name", "heating.circuits.1", "name", "string", "text");
     await this.mapSummary(
@@ -666,7 +701,7 @@ export class StateSync {
       "heating.compressors.0",
       "active",
       "boolean",
-      "indicator.state"
+      "indicator"
     );
     await this.mapSummary(
       index,
@@ -807,7 +842,7 @@ export class StateSync {
   }
 
   async ensureState(id, name, type, role, unit) {
-    await this.adapter.setObjectNotExistsAsync(id, {
+    await this.ensureObject(id, {
       type: "state",
       common: {
         name,

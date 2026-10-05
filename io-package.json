@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "viessmann-climate-api",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "news": {
+      "0.1.2": {
+        "en": "Fix object hierarchy and state roles so live installations pass the ioBroker object structure review.",
+        "de": "Objekthierarchie und State-Rollen wurden korrigiert, damit reale Installationen die ioBroker-Objektstrukturpruefung bestehen.",
+        "ru": "Исправлены иерархия объектов и роли состояний, чтобы рабочие установки проходили проверку структуры объектов ioBroker.",
+        "pt": "A hierarquia de objetos e as funções dos estados foram corrigidas para que instalações reais passem na verificação de estrutura do ioBroker.",
+        "nl": "De objecthiërarchie en statusrollen zijn gecorrigeerd zodat echte installaties de ioBroker-objectstructuurcontrole doorstaan.",
+        "fr": "La hiérarchie des objets et les rôles des états ont été corrigés afin que les installations réelles réussissent le contrôle de structure ioBroker.",
+        "it": "La gerarchia degli oggetti e i ruoli degli stati sono stati corretti affinché le installazioni reali superino il controllo della struttura ioBroker.",
+        "es": "Se corrigieron la jerarquía de objetos y los roles de los estados para que las instalaciones reales superen la revisión de estructura de ioBroker.",
+        "pl": "Poprawiono hierarchię obiektów i role stanów, aby rzeczywiste instalacje przechodziły kontrolę struktury obiektów ioBroker.",
+        "uk": "Виправлено ієрархію об'єктів і ролі станів, щоб робочі інсталяції проходили перевірку структури об'єктів ioBroker.",
+        "zh-cn": "修复了对象层次结构和状态角色，使实际安装能够通过 ioBroker 对象结构检查。"
+      },
       "0.1.1": {
         "en": "Fix the donation button to use the adapter's fixed PayPal URL and remove the editable placeholder field from the admin UI.",
         "de": "Der Spendenbutton verwendet jetzt die feste PayPal-URL des Adapters; das editierbare Platzhalterfeld wurde aus der Admin-Oberflaeche entfernt.",
@@ -142,10 +155,7 @@
       "_id": "info.connection",
       "type": "state",
       "common": {
-        "name": {
-          "en": "Viessmann Climate API connection",
-          "de": "Viessmann Climate API Verbindung"
-        },
+        "name": "Viessmann Climate API connection",
         "type": "boolean",
         "role": "indicator.connected",
         "read": true,

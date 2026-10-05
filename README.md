@@ -93,6 +93,12 @@ Choose the adapter that matches your connection method and existing automation. 
 
 ## Changelog
 
+### 0.1.2 (2026-10-02)
+
+- Fixed missing intermediate channel objects in dynamic raw, summary, control, diagnostics and write paths.
+- Corrected generated state roles and the support-report button semantics for the official ioBroker object structure checker.
+- Existing installations now receive corrected object definitions during normal polling without deleting their states.
+
 ### 0.1.1 (2026-10-02)
 
 - Fixed the donation button to use the adapter's built-in PayPal URL.
