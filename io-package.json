@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "viessmann-climate-api",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "news": {
+      "0.1.3": {
+        "en": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "de": "Releases werden ueber npm Trusted Publishing mit Provenance und geprueftem Tag-Workflow veroeffentlicht.",
+        "ru": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "pt": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "nl": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "fr": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "it": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "es": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "pl": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "uk": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
+        "zh-cn": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow."
+      },
       "0.1.2": {
         "en": "Fix object hierarchy and state roles so live installations pass the ioBroker object structure review.",
         "de": "Objekthierarchie und State-Rollen wurden korrigiert, damit reale Installationen die ioBroker-Objektstrukturpruefung bestehen.",
