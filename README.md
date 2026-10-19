@@ -93,6 +93,11 @@ Choose the adapter that matches your connection method and existing automation. 
 
 ## Changelog
 
+### 0.1.4 (2026-10-19)
+
+- Translated release news required by the ioBroker repository checker.
+- No adapter runtime behavior changed in this release.
+
 ### 0.1.3 (2026-10-19)
 
 - Switched release publication to npm Trusted Publishing so packages include provenance and the tag workflow remains authoritative.

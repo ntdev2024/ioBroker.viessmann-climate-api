@@ -1,20 +1,33 @@
 {
   "common": {
     "name": "viessmann-climate-api",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "news": {
+      "0.1.4": {
+        "en": "Translate release news for ioBroker repository checks; no runtime behavior changes.",
+        "de": "Release-Hinweise wurden fuer die ioBroker-Repository-Pruefung uebersetzt; das Laufzeitverhalten bleibt unveraendert.",
+        "ru": "Примечания к выпуску переведены для проверок репозитория ioBroker; поведение во время выполнения не изменено.",
+        "pt": "As notas de versão foram traduzidas para as verificações do repositório ioBroker; sem alterações no comportamento em execução.",
+        "nl": "Release-opmerkingen zijn vertaald voor de ioBroker-repositorycontroles; geen wijzigingen in runtimegedrag.",
+        "fr": "Les notes de version ont été traduites pour les contrôles du dépôt ioBroker ; aucun changement du comportement à l'exécution.",
+        "it": "Le note di rilascio sono state tradotte per i controlli del repository ioBroker; nessuna modifica al comportamento in esecuzione.",
+        "es": "Se tradujeron las notas de la versión para las comprobaciones del repositorio de ioBroker; sin cambios en el comportamiento en tiempo de ejecución.",
+        "pl": "Przetłumaczono informacje o wydaniu na potrzeby kontroli repozytorium ioBroker; bez zmian w działaniu.",
+        "uk": "Примітки до випуску перекладено для перевірок репозиторію ioBroker; без змін у поведінці під час виконання.",
+        "zh-cn": "已翻译发布说明以满足 ioBroker 仓库检查；运行时行为未更改。"
+      },
       "0.1.3": {
         "en": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
         "de": "Releases werden ueber npm Trusted Publishing mit Provenance und geprueftem Tag-Workflow veroeffentlicht.",
-        "ru": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "pt": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "nl": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "fr": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "it": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "es": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "pl": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "uk": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow.",
-        "zh-cn": "Publish releases through npm Trusted Publishing with provenance and a verified tag workflow."
+        "ru": "Публикация релизов через npm Trusted Publishing с подтверждением происхождения и проверенным рабочим процессом тегов.",
+        "pt": "Publicação de versões através do npm Trusted Publishing com proveniência e um fluxo de trabalho de etiquetas verificado.",
+        "nl": "Releases worden gepubliceerd via npm Trusted Publishing met herkomstbewijs en een geverifieerde tagworkflow.",
+        "fr": "Publication des versions via npm Trusted Publishing avec provenance et workflow de balises vérifié.",
+        "it": "Pubblicazione delle versioni tramite npm Trusted Publishing con provenienza e flusso di lavoro dei tag verificato.",
+        "es": "Publicación de versiones mediante npm Trusted Publishing con procedencia y un flujo de etiquetas verificado.",
+        "pl": "Publikowanie wydań przez npm Trusted Publishing z poświadczeniem pochodzenia i zweryfikowanym przepływem tagów.",
+        "uk": "Публікація релізів через npm Trusted Publishing із підтвердженням походження та перевіреним процесом тегів.",
+        "zh-cn": "通过 npm Trusted Publishing 发布版本，并提供来源证明和经过验证的标签工作流。"
       },
       "0.1.2": {
         "en": "Fix object hierarchy and state roles so live installations pass the ioBroker object structure review.",
